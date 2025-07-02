@@ -1,0 +1,97 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--primary-accent);
+  padding: 16px 32px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.navbar-logo {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.navbar-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1100;
+}
+.bar {
+  width: 24px;
+  height: 3px;
+  background: #fff;
+  margin: 3px 0;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+.navbar-links {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+.navbar-links a, .navbar-links .active {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.08rem;
+  transition: color 0.2s;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+}
+.navbar-links .active {
+  color: var(--highlight);
+  border-bottom: 2px solid var(--highlight);
+}
+.navbar-links a:hover {
+  color: var(--highlight);
+}
+@media (max-width: 900px) {
+  .navbar-hamburger {
+    display: flex;
+  }
+  .navbar-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--primary-accent);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    width: 100vw;
+    padding: 0 0 12px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s;
+  }
+  .navbar-links.open {
+    max-height: 500px;
+    padding: 12px 0 12px 0;
+    gap: 10px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+  }
+  .navbar-links a, .navbar-links .active {
+    width: 100%;
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+}
+
+.app-content {
+  padding-top: 72px; /* Adjust if navbar height changes */
+} 
